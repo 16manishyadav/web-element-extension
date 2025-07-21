@@ -58,7 +58,46 @@
 - [Get NanoT8r from the Chrome Web Store](https://chrome.google.com/webstore/detail/nanot8r/your-extension-id)
 - [Get NanoT8r from Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/nanot8r/your-extension-id)
 - [Get NanoT8r from Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/nanot8r/)
-  
+
+  *(Replace the above links with your actual store listing URLs after publishing!)*
+
+---
+
+## 🚀 Deployment Steps
+
+### Chrome Web Store
+1. Zip the contents of your extension directory (not the directory itself).
+2. Go to [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole).
+3. Click **Add new item** and upload your ZIP file.
+4. Fill out the listing, upload icons/screenshots, and submit for review.
+
+### Edge Add-ons
+1. Use the same ZIP file as for Chrome.
+2. Go to [Microsoft Partner Center](https://partner.microsoft.com/en-us/dashboard/microsoftedge/overview).
+3. Click **+ New extension** and upload your ZIP.
+4. Fill out the listing and submit for review.
+
+### Firefox Add-ons
+1. Use the same ZIP file (Manifest V3 is supported, but check for compatibility).
+2. Go to [Firefox Add-ons Developer Hub](https://addons.mozilla.org/en-US/developers/).
+3. Click **Submit a New Add-on** and upload your ZIP.
+4. Fill out the listing and submit for review.
+
+---
+
+## 🧪 Manual Testing in Developer Mode
+
+### Chrome, Edge, Brave
+1. Go to `chrome://extensions/` (or `edge://extensions/`).
+2. Enable **Developer mode** (top right).
+3. Click **Load unpacked** and select your extension directory.
+4. The NanoT8r icon will appear in your toolbar for testing.
+
+### Firefox
+1. Go to `about:debugging#/runtime/this-firefox`.
+2. Click **Load Temporary Add-on**.
+3. Select the `manifest.json` file from your extension directory.
+4. The NanoT8r icon will appear in your toolbar for testing.
 
 ---
 
