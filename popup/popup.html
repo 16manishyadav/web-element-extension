@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Element Customizer</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 1.5em 1em 1em 1em; width: 240px; background: #f7fafd; }
+    .wec-btn {
+      width: 100%;
+      padding: 0.9em 0;
+      font-size: 1.15em;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(25,118,210,0.10);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7em;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.13s;
+      outline: none;
+      margin-bottom: 0.7em;
+    }
+    .wec-btn.wec-btn-secondary {
+      background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+    }
+    .wec-btn.wec-btn-secondary:hover, .wec-btn.wec-btn-secondary:focus {
+      background: linear-gradient(90deg, #11998e 0%, #1e3c72 100%);
+    }
+    .wec-btn.wec-btn-danger {
+      background: linear-gradient(90deg, #d32f2f 0%, #ff6a00 100%);
+    }
+    .wec-btn.wec-btn-danger:hover, .wec-btn.wec-btn-danger:focus {
+      background: linear-gradient(90deg, #b71c1c 0%, #ff9800 100%);
+    }
+    .wec-btn:hover, .wec-btn:focus {
+      background: linear-gradient(90deg, #1565c0 0%, #29b6f6 100%);
+      box-shadow: 0 8px 32px rgba(25,118,210,0.16);
+      transform: scale(1.04);
+    }
+    .wec-btn svg {
+      width: 1.5em;
+      height: 1.5em;
+      display: block;
+    }
+    .wec-title {
+      font-size: 1.1em;
+      font-weight: 700;
+      color: #1976d2;
+      margin-bottom: 1.2em;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+    .wec-btn-row {
+      display: flex;
+      gap: 0.7em;
+      margin-bottom: 0.7em;
+    }
+    .wec-btn-icon {
+      flex: 1 1 0;
+      padding: 0.7em 0;
+      min-width: 0;
+      font-size: 1em;
+      background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+    }
+    .wec-btn-icon svg {
+      margin-right: 0.4em;
+    }
+    .wec-toggle-row {
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+      margin-bottom: 1.1em;
+      justify-content: space-between;
+    }
+    .wec-toggle-label {
+      font-size: 1em;
+      font-weight: 600;
+      color: #1976d2;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .wec-switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+    .wec-switch input { display: none; }
+    .wec-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #b0bec5;
+      border-radius: 24px;
+      transition: background 0.2s;
+    }
+    .wec-slider:before {
+      position: absolute;
+      content: '';
+      height: 20px;
+      width: 20px;
+      left: 2px;
+      bottom: 2px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.2s;
+      box-shadow: 0 2px 8px rgba(25,118,210,0.10);
+    }
+    .wec-switch input:checked + .wec-slider {
+      background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+    }
+    .wec-switch input:checked + .wec-slider:before {
+      transform: translateX(20px);
+    }
+  </style>
+</head>
+<body>
+  <div class="wec-title">Web Element Customizer</div>
+  <button class="wec-btn" id="activate-selector">
+    <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+    Activate Element Selector
+  </button>
+  <div class="wec-toggle-row">
+    <span class="wec-toggle-label">
+      <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 3a9 9 0 1 0 9 9c0-4.97-4.03-9-9-9zm0 16a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" fill="#1976d2"/></svg>
+      Dark Mode (Extension)
+    </span>
+    <label class="wec-switch">
+      <input type="checkbox" id="dark-mode-toggle-extension">
+      <span class="wec-slider"></span>
+    </label>
+  </div>
+  <div class="wec-toggle-row">
+    <span class="wec-toggle-label">
+      <svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="7" width="18" height="10" rx="5" fill="#1976d2"/></svg>
+      Dark Mode (Website)
+    </span>
+    <label class="wec-switch">
+      <input type="checkbox" id="dark-mode-toggle-website">
+      <span class="wec-slider"></span>
+    </label>
+  </div>
+  <div class="wec-btn-row">
+    <button class="wec-btn wec-btn-icon" id="undo-action" title="Undo">
+      <svg viewBox="0 0 20 20"><path d="M4 10h8a4 4 0 1 1-4 4" fill="none" stroke="#1976d2" stroke-width="2" stroke-linecap="round"/></svg>
+      Undo
+    </button>
+    <button class="wec-btn wec-btn-icon" id="redo-action" title="Redo">
+      <svg viewBox="0 0 20 20"><path d="M16 10H8a4 4 0 1 0 4 4" fill="none" stroke="#1976d2" stroke-width="2" stroke-linecap="round"/></svg>
+      Redo
+    </button>
+  </div>
+  <button class="wec-btn wec-btn-danger" id="remove-customizations">
+    <svg viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+    Remove All Customizations
+  </button>
+  <script src="popup.js"></script>
+</body>
+</html> 
